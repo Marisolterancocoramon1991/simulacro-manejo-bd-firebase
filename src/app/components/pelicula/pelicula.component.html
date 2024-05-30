@@ -1,0 +1,32 @@
+<!-- pelicula.component.html -->
+
+<p>pelicula works!</p>
+
+<form [formGroup]="formularioPelicula" (ngSubmit)="agregarPelicula()">
+    <div>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" formControlName="nombre" name="nombre">
+    </div>
+    <div>
+      <label for="tipo">Tipo:</label>
+      <select id="tipo" formControlName="tipo" name="tipo">
+        <option value="terror">Terror</option>
+        <option value="comedia">Comedia</option>
+        <option value="amor">Amor</option>
+        <option value="otros">Otros</option>
+      </select>
+    </div>
+    <div>
+      <label for="fechaEstreno">Fecha de Estreno:</label>
+      <input type="date" id="fechaEstreno" formControlName="fechaEstreno" name="fechaEstreno">
+    </div>
+    <div>
+      <label for="cantidadPublico">Cantidad de Público:</label>
+      <input type="number" id="cantidadPublico" formControlName="cantidadPublico" name="cantidadPublico">
+    </div>
+    <div>
+      <label for="imagen">Imagen:</label>
+      <input type="file" id="imagen" (change)="seleccionarImagen($event)" name="imagen">
+    </div>
+    <button type="submit" [disabled]="!formularioPelicula.valid" name="botonAgregar">Agregar Película</button>
+</form>

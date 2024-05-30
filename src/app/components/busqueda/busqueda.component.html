@@ -1,0 +1,45 @@
+
+<!-- busqueda.component.html -->
+
+<h1>Listado de elementos</h1>
+<app-tabla-peliculas [peliculas]="peliculas" (clickPelicula)="seleccionarPelicula($event)"></app-tabla-peliculas>
+
+<div *ngIf="peliculaSeleccionada">
+  <h2>Detalles de la película</h2>
+  <p>Nombre: {{ peliculaSeleccionada.nombre }}</p>
+  <p>Tipo: {{ peliculaSeleccionada.tipo }}</p>
+  <p>Fecha de Estreno: {{ peliculaSeleccionada.fechaEstreno }}</p>
+  <p>Cantidad de Público: {{ peliculaSeleccionada.cantidadPublico }}</p>
+  <!-- Agrega más atributos de película aquí -->
+</div>
+
+
+<div *ngIf="peliculaSeleccionada">
+    <h1>modificar la pelicula seleccionada</h1>
+    <form [formGroup]="formularioPelicula" (ngSubmit)="modificarPelicula()">
+        <div>
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" formControlName="nombre" name="nombre">
+        </div>
+        <div>
+          <label for="tipo">Tipo:</label>
+          <select id="tipo" formControlName="tipo" name="tipo">
+            <option value="terror">Terror</option>
+            <option value="comedia">Comedia</option>
+            <option value="amor">Amor</option>
+            <option value="otros">Otros</option>
+          </select>
+        </div>
+        <div>
+          <label for="fechaEstreno">Fecha de Estreno:</label>
+          <input type="date" id="fechaEstreno" formControlName="fechaEstreno" name="fechaEstreno">
+        </div>
+        <div>
+          <label for="cantidadPublico">Cantidad de Público:</label>
+          <input type="number" id="cantidadPublico" formControlName="cantidadPublico" name="cantidadPublico">
+        </div>
+        <button type="submit" [disabled]="!formularioPelicula.valid" name="botonModificar">Modificar Película</button>
+    </form>
+    
+  </div>
+  

@@ -1,0 +1,24 @@
+<!-- tabla-peliculas.component.html -->
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Imagen</th>
+      <th>Tipo</th>
+      <th>Fecha de Estreno</th>
+      <th>Cantidad de Público</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pelicula of peliculas" (click)="onPeliculaClicked(pelicula)">
+      <td>{{ pelicula.nombre }}</td>
+      <td>
+        <img [src]="pelicula.foto" alt="{{ pelicula.nombre }}" style="width: 100px;">
+      </td>
+      <td>{{ pelicula.tipo }}</td>
+      <td>{{ pelicula.fechaEstreno }}</td>
+      <td>{{ pelicula.cantidadPublico }}</td>
+    </tr>
+  </tbody>
+</table>
